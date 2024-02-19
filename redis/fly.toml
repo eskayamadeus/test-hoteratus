@@ -1,0 +1,19 @@
+# fly.toml app configuration file generated for hoteratus-redis on 2024-02-16T17:57:01Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'hoteratus-redis'
+primary_region = 'ams'
+
+[build]
+  image = 'flyio/redis:6.2.6'
+
+[[mounts]]
+  source = 'redis_server'
+  destination = '/data'
+
+[[vm]]
+  cpu_kind = 'shared'
+  cpus = 1
+  memory_mb = 2048
